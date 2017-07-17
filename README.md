@@ -81,6 +81,15 @@ It needs to be prepared for a single document or an array. When receiving data, 
 * return HTTP 500 in case of unexpected error;
 * return HTTP 403 in case of throtling (please check the item below).
 
+The data saved in the database through this endpoint is the payload + serialNumber as specified below:
+```
+  {
+    "latitude": 19.199843,
+    "longitude": 129.606578,
+    "deviceSN": "1234XPTO"
+  }
+```
+
 
 ### Throttling devices
 
