@@ -93,7 +93,7 @@ The data saved in the database through this endpoint is the payload + serialNumb
 
 ### Throttling devices
 
-The goal of building this rest api is the opportunity to provide a throttling feature. When ENABLED, all data posted to `/positions` are going to be verified. If the deviceId informed in the url matches with a list of "blocked" devices, it returns HTTP 403 and prevent the data to be saved in the main datastore. Of course, if disabled, it ignores the blaclist and everything should work fine.
+The goal of building this rest api is the opportunity to provide a throttling feature. When ENABLED, all data posted to `/positions` are going to be verified. If the deviceId informed in the url matches with a list of "blocked" devices, it returns HTTP 403 and prevent the data to be saved in the main datastore. Of course, if disabled, it ignores the blacklist and everything should work fine.
 
 ## Things you can't do when building your application
 * We don't want additional features. Plese, stay focused on what is being requested;
