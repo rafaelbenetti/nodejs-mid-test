@@ -4,6 +4,7 @@
     const express = require('express');    
     const bodyParser = require('body-parser');    
     const deviceRouter = require('../device/device-router');
+    const positionRouter = require('../position/position-router');
     const errorHandler = require('../middleware/error-handler');
             
     const databaseManager = require('../config/database-manager');
@@ -19,6 +20,7 @@
 
     app.use(bodyParser.json());        
     app.use('/devices', deviceRouter);
+    app.use('/position', positionRouter);
     app.use(errorHandler);
 
     module.exports = app;
