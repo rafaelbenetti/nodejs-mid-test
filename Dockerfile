@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package.json /app
 RUN npm install
-RUN npm install nodemon -g
+RUN npm install nodemon mocha -g 
 
 COPY . /app
 
