@@ -11,5 +11,9 @@
         return Device.find({});
     };
 
+    deviceService.create = function (device) {
+        return Device.create(device);
+    };
+
     module.exports = deviceService;
 })();
