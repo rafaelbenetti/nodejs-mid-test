@@ -4,7 +4,7 @@
     const express = require('express');    
     const bodyParser = require('body-parser');    
     const deviceRouter = require('../device/device-router');
-    const errorHandler = require('./middleware/error-handler');
+    const errorHandler = require('../middleware/error-handler');
             
     const databaseManager = require('../config/database-manager');
     databaseManager.connect(); 
