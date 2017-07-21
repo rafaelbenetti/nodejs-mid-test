@@ -4,7 +4,7 @@
     const host = {
         address: 'mongodb://db',
         port: '27017',
-        database: 'farming-automation-test'
+        database: 'farming-automation'
     };
 
     module.exports = host;
