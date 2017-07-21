@@ -6,7 +6,8 @@
     let deviceController = {};
 
     deviceController.find = deviceService.find;
-    deviceController.create = device => deviceService.create(device);
+    deviceController.findById = id => deviceService.findById(id);
+    deviceController.create = device => deviceService.create(device);    
     
     module.exports = deviceController;
 })();

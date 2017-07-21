@@ -3,9 +3,7 @@
 
     const request = require('supertest');
     const app = require('../server/config/express');
-
     const devices = require('./mock/devices.js');
-
     const COLLECTION = '/devices';
 
     describe('Finding All devices', () => {

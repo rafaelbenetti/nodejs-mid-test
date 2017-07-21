@@ -20,5 +20,18 @@
                 .catch(next);
         });
 
+    router.route('/:id')
+        .get((req, res, next) => {
+            deviceController
+                .findById(req.params.id)
+                .then(device => {
+                    if(device)
+                        res.json(device);
+                    else
+                        res.sendStatus(404);
+                })
+                .catch(next);
+        });
+
     module.exports = router;
 })();
