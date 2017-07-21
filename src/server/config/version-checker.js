@@ -2,7 +2,7 @@
     'use strict';
 
     const semver = require('semver');
-    const packageJson = require('./package');
+    const packageJson = require('../../../package');
     const version = packageJson.engines.node;
     
     let versionChecker = {};

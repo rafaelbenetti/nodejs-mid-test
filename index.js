@@ -1,16 +1,18 @@
-(function() {
+(function () {
     'use strict';
 
-    let versionChecker = require('./version-checker');
+    let versionChecker = require('./src/server/config/version-checker');
     versionChecker.check();
 
     let http = require('http');
+    let app = require('./src/server/config/express');
 
-    let server = http.createServer((req, res) => {
-        res.end('Hello World');
-    });
+    let host = {
+        port: 3000
+    };
 
-    server.listen(3000, () => {
-        console.log('Server is running!');
-    });
+    http.createServer(app)
+        .listen(host.port, () => {
+            console.log(`Node server on port: ${host.port}`);
+        });
 })();
