@@ -3,8 +3,7 @@
 
     const express = require('express');
     let positionController = require('./position-controller');
-    let deviceController = require('../device/device-controller');
-    let arrayHelper = require('../helpers/array-helper');
+    let deviceController = require('../device/device-controller');    
 
     let router = express.Router();
 
@@ -19,25 +18,11 @@
         if (!device)
             return res.sendStatus(404);
 
-        let position = setSerialNumberFor(req.body, device);
         positionController
-            .create(position)
+            .create(req.body, device)
             .then(() => res.sendStatus(200))
             .catch(next);
     }
-
-    function setSerialNumberFor(position, device) {
-        if (arrayHelper.isArray(position)) 
-            position.map((p) => mapSerialNumber(p, device));
-        else 
-            position.deviceSN = device.serialNumber;
-        return position;
-    } 
-
-    function mapSerialNumber(position, device) {
-        position.deviceSN = device.serialNumber;
-        return position;
-    };
 
     module.exports = router;
 })();
