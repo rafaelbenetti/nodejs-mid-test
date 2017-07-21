@@ -6,14 +6,6 @@
     const devices = require('./mock/devices.js');
     const COLLECTION = '/devices';
 
-    describe('Finding All devices', () => {
-        it('Expect status 200', (done) => {
-            request(app)
-                .get(COLLECTION)
-                .expect(200, done);
-        });
-    });
-
     describe('Creating new devices', () => {
         it('Expect status 200', (done) => {
 
@@ -48,6 +40,43 @@
                 .send(device)
                 .expect(400)
                 .expect(expectedResult, done);
+        });
+    });
+
+    describe('Finding All devices', () => {
+        it('Expect status 200', (done) => {
+            request(app)
+                .get(COLLECTION)
+                .expect(200, done);
+        });
+
+        it('Expect json content', (done) => {
+            request(app)
+                .get(COLLECTION)
+                .expect('Content-Type', 'application/json; charset=utf-8', done);
+        });
+    });
+
+    describe('Finding one device by id', () => {
+        it('Expect status 200', (done) => {
+
+            let device = devices[0];
+
+            request(app)
+                .get(`${COLLECTION}/${device._id}`)
+                .expect(200, done);
+        });
+
+        it('Expect status 404', (done) => {
+            request(app)
+                .get(`${COLLECTION}/not_valid_id`)
+                .expect(404, done);
+        });
+
+        it('Expect json content', (done) => {
+            request(app)
+                .get(COLLECTION)
+                .expect('Content-Type', 'application/json; charset=utf-8', done);
         });
     });
 })();
