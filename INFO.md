@@ -3,6 +3,9 @@
 ## To run the API
 ```js
  sudo docker-compose up
+ // If necessary
+ sudo npm install nodemon mocha -g 
+ sudo npm install
 ```
 
 ## To run the tests
