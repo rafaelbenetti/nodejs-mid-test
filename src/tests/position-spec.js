@@ -38,5 +38,26 @@
                 .send(position)
                 .expect(404, done);
         });
+
+        it('Insert device for BLACKLIST', (done) => {
+
+            let device = devices[2];
+            device.serialNumber = '1234XPTO';
+
+            request(app)
+                .post('/devices')
+                .send(device)
+                .expect(200, done);
+        });
+            
+        it('Expect status code 403 BLACKLIST', (done) => {
+            
+            let device = devices[2];   
+
+            request(app)
+                .post(`${COLLECTION}/${device._id}`)
+                .send(positions)
+                .expect(403, done);
+        });
     });
 })();
