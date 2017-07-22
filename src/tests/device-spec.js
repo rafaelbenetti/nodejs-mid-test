@@ -7,7 +7,7 @@
     const COLLECTION = '/devices';
 
     describe('Creating new devices', () => {
-        it('Expect status 200', (done) => {
+        it('Expect status code 200', (done) => {
 
             let device = devices[0];
 
@@ -17,7 +17,7 @@
                 .expect(200, done);
         });
 
-        it('Expect status 400', (done) => {
+        it('Expect status code 400', (done) => {
 
             let device = devices[0];
 
@@ -44,7 +44,7 @@
     });
 
     describe('Finding All devices', () => {
-        it('Expect status 200', (done) => {
+        it('Expect status code 200', (done) => {
             request(app)
                 .get(COLLECTION)
                 .expect(200, done);
@@ -58,7 +58,7 @@
     });
 
     describe('Finding one device by id', () => {
-        it('Expect status 200', (done) => {
+        it('Expect status code 200', (done) => {
 
             let device = devices[0];
 
@@ -67,7 +67,7 @@
                 .expect(200, done);
         });
 
-        it('Expect status 404', (done) => {
+        it('Expect status code 404', (done) => {
             request(app)
                 .get(`${COLLECTION}/not_valid_id`)
                 .expect(404, done);

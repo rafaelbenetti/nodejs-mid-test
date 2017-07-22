@@ -7,10 +7,10 @@
 
     let router = express.Router();
 
-    router.route('/:id')
+    router.route('/:deviceId')
         .post((req, res, next) => {
             deviceController
-                .findById(req.params.id)
+                .findById(req.params.deviceId)
                 .then((device) => processPositionData(device, req, res, next));
         });
 

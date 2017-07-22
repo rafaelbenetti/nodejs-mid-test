@@ -20,7 +20,7 @@
 
     app.use(bodyParser.json());        
     app.use('/devices', deviceRouter);
-    app.use('/position', positionRouter);
+    app.use('/positions', positionRouter);
     app.use(errorHandler);
 
     module.exports = app;
