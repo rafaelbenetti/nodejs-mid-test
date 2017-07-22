@@ -3,7 +3,8 @@
 
     const express = require('express');
     let positionController = require('./position-controller');
-    let deviceController = require('../device/device-controller');    
+    let deviceController = require('../device/device-controller');
+    let blackListService = require('./black-list-service')    ;
 
     let router = express.Router();
 
@@ -17,6 +18,9 @@
     function processPositionData(device, req, res, next) {
         if (!device)
             return res.sendStatus(404);
+
+        if (blackListService.isBlocked(device))
+            return res.sendStatus(403);
 
         positionController
             .create(req.body, device)

@@ -7,8 +7,8 @@
   "description": "Project to apply some basic concepts of a resource API using NodeJS stack.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev nodemon index.js",
-    "test": "NODE_ENV=test mocha src/tests/"
+    "start": "NODE_ENV=dev BLACK_LIST_ENABLED=true nodemon index.js",
+    "test": "NODE_ENV=test BLACK_LIST_ENABLED=true mocha src/tests/"
   },
   "repository": {
     "type": "git",

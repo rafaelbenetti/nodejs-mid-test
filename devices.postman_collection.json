@@ -1,0 +1,86 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Devices API",
+		"_postman_id": "15ab4a71-8364-8235-0991-aab0383e26f8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all devices",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{URL_BASE}}/devices",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create new device",
+			"request": {
+				"url": "{{URL_BASE}}/devices",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"b55ee146-217b-4696-b9ef-b61581dad7eDf\",\n\t\"serialNumber\": \"1234XPTO1\",\n\t\"deviceId\": \"NDTSTSMID0001-1020\",\n\t\"name\": \"my device\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get one by id",
+			"request": {
+				"url": "{{URL_BASE}}/devices/b55ee146-217b-4696-b9ef-b61581dad7ee",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create new position",
+			"request": {
+				"url": "{{URL_BASE}}/positions/b55ee146-217b-4696-b9ef-b61581dad7eDfs",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"latitude\": 20.199843,\n    \"longitude\": 129.606578\n},\n{\n    \"latitude\": 20.199843,\n    \"longitude\": 129.606578\n}]\n"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
